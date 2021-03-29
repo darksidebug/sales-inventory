@@ -1,0 +1,282 @@
+<div class="container-fluid payments">
+        <div class="container">
+            <h3>LIST OF ALL PRODUCTS</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">LIST OF PRODUCTS INFORMATION</div>
+                        <div class="panel-body">
+                            <div class="table-wrapper">
+                                <table class="table table-striped table-hover table-responsive" id="ordered_items" style="min-width: 1100px;">
+                                    <thead>
+                                        <tr>
+                                            <td>BOX/ITEM NO</td>
+                                            <td>ITEMS</td>
+                                            <td>BRAND</td>
+                                            <td>SIZE</td>
+                                            <td>COLOR</td>
+                                            <td>PRICE</td>
+                                            <td>REMARKS</td>
+                                            <td>ACTION</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if(!empty($products)): ?>
+                                            <?php foreach($products as $row => $prod): ?>
+                                                <?php  ?>
+                                                <tr>
+                                                    <td>
+                                                        <?= $prod->item_box_num; ?>
+                                                    </td>
+                                                    <td>
+                                                        <div style="height: 50px; width: 50px; overflow: hidden; display: inline-table; background-color: #fff; border: 1px solid #8ea1ac; border-radius: 3px;">
+                                                            <img src="<?= base_url(); ?>uploads/<?= $prod->image_name; ?>" srcset="" style="height: auto; width: 50px;">
+                                                        </div>
+                                                        <?= $prod->item_desc; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $prod->brand; ?>
+                                                    </td>
+                                                    <td><?= $prod->size; ?></td>
+                                                    <td><?= $prod->color; ?></td>
+                                                    <td><?= $prod->price; ?></td>
+                                                    <td><?= $prod->remarks; ?></td>
+                                                    <td>
+                                                        <a href="<?= base_url(); ?>page/form/update-product.html/<?= $prod->id; ?>/update-info" id="<?= $prod->id; ?>" class="btn btn-warning btn-xs edit">Edit</a>
+                                                        <!-- <button id="<?= $prod->id; ?>" class="btn btn-danger btn-xs del" style="margin-left: -2px">Unsold</button> -->
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--- modal -->
+    <div class="modal fade" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Please check to indicate why you want to update.</h5>
+                    <button class="btn btn-danger btn-xs close" type="button" data-dismiss="modal" id="danger"><i class="fa fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <div class="row" style="margin-top: -15px;">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="user">Amount</label>
+                                    <input type="text" class="form-control ln" name="amount" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="user">Payment Method</label>
+                                    <input type="text" class="form-control ln" name="payment_type" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="date">Date</label>
+                                    <input type="date" class="form-control ln" name="date" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="user">Remarks</label>
+                                    <input type="text" class="form-control ln" name="remarks" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <span>
+                                <input type="checkbox" name="less" value="false">
+                                <p>The payment amount entered recently was less than actual payment amount.</p>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span>
+                                <input type="checkbox" name="greater" value="false">
+                                <p>The payment amount entered recently was greater than actual payment amount.</p>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <button id="" type="button" class="btn btn-info update continue">CONTINUE</button>
+                            <button class="btn btn-default clear" data-dismiss="modal">CANCEL</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--- end modal -->
+    <script>
+        $(document).ready(function(){
+            $('#ordered_items').DataTable();
+    
+            $('input[type="date"]').on('click', function(){
+                $('#date').css('visibility', 'visible');
+            })
+    
+            $('input[type="date"]').on('blur', function(){
+                if($(this).val() != ''){
+                    $(this).parent().addClass('slide-up');
+                    $('#date').css('visibility', 'visible');
+                }
+                else{
+                    $(this).parent().removeClass('slide-up');
+                    $('#date').css('visibility', 'hidden');
+                }
+            })
+    
+            $('input[name="less"]').click(function() {
+                if($(this).is(':checked')){
+                    $(this).attr('value', 'true')
+                    $(this).prop('checked', true)
+                    $('input[name="greater"]').prop('checked', false);
+                    $('input[name="greater"]').attr('value', 'false');
+                }
+                else{
+                    $(this).attr('value', 'false')
+                }
+            })
+            $('input[name="greater"]').click(function() {
+                if($(this).is(':checked')){
+                    $(this).attr('value', 'true')
+                    $(this).prop('checked', true)
+                    $('input[name="less"]').prop('checked', false);
+                    $('input[name="less"]').attr('value', 'false');
+                }
+                else{
+                    $(this).attr('value', 'false')
+                }
+            })
+    
+            function pay_in_verify(){
+                if($('input[name="amount"]').val() != '' && 
+                    $('input[name="payment_type"]').val() != '' && $('input[name="date"]').val() != '' && 
+                    $('input[name="remarks"]').val() != ''){
+                        
+                    $('input[name="amount"]').parent().addClass('slide-up');
+                    $('input[name="payment_type"]').parent().addClass('slide-up');
+                    $('input[name="date"]').parent().addClass('slide-up');
+                    $('input[name="remarks"]').parent().addClass('slide-up');
+                }
+                else{
+                    $('input[name="amount"]').parent().removeClass('slide-up');
+                    $('input[name="payment_type"]').parent().removeClass('slide-up');
+                    $('input[name="date"]').parent().removeClass('slide-up');
+                    $('input[name="remarks"]').parent().removeClass('slide-up');
+                }
+            }
+    
+            $(document).on('click', '.edit', function(){
+                $('#date').css('visibility', 'hidden');
+                $('.continue').attr('id', $(this).attr('id'));
+                if($(this).attr('id') != ''){
+                    $('input[name="product_id"]').val($(this).attr('id'));
+                    $('.continue').attr('id', $(this).attr('id'));
+    
+                    $.ajax({
+                        url: '<?= base_url(); ?>user/payment_info',
+                        type: 'POST',
+                        data: {id: $(this).attr('id') },
+                        success: function(data){
+                            const log_oObj = JSON.parse(data);
+                            console.log(log_oObj);
+    
+                            log_oObj.payment.forEach(element => {
+                                $('input[name="amount"]').val(element['amount_paid']);
+                                $('input[name="payment_type"]').val(element['payment_method']);
+                                $('input[name="date"]').val(element['date_paid']);
+                            });
+    
+                            log_oObj.remarks.forEach(element => {
+                                $('input[name="remarks"]').val(element['remarks']);
+                            });
+    
+                            pay_in_verify();
+                            $('#date').css('visibility', 'visible');
+                        }
+                    })
+                }
+            })
+    
+            $('.continue').on('click', function(e){
+                e.preventDefault();
+                if($('input[name="less"]').is(':checked') || $('input[name="greater"]').is(':checked')){
+                    if(confirm('Are you sure you want to continue? This actions cannot be undone.')){
+                        $.ajax({
+                            url: '<?= base_url(); ?>user/update_item_payment',
+                            type: 'POST',
+                            data: {
+                                id          : $(this).attr('id'),
+                                amount      : $('input[name="amount"]').val(),
+                                method      : $('input[name="payment_type"]').val(),
+                                date        : $('input[name="date"]').val(),
+                                remarks     : $('input[name="remarks"]').val(),
+                                customer_id : $('.customer_id').val(),
+                                payment_id  : $('.payment_id' + $(this).attr('id')).val(),
+                                product_id  : $('.product_id' + $(this).attr('id')).val(),
+                                balance     : $('#balance').html(),
+                                less        : $('input[name="less"]').val(),
+                                greater     : $('input[name="greater"]').val(),
+                            },
+                            success: function(data){
+                                const log_oObj = JSON.parse(data);
+                                console.log(log_oObj);
+                                if(log_oObj.update == true){
+                                    $('#balance').html(log_oObj.balance);
+                                    $('.modal').modal('toggle');
+                                    swal(
+                                        {
+                                            title: 'SUCCESSFUL',
+                                            text : log_oObj.message,
+                                            type : "success",
+                                            showCancelButton  : false,
+                                            showConfirmButton  : false,
+                                            confirmButtonColor: "#A5DC86",
+                                            confirmButtonText : "OK",
+                                            cancelButtonText  : "",
+                                            closeOnConfirm    : true,
+                                            closeOnCancel     : false 
+                                        }
+                                    );
+    
+                                    setTimeout(() => {
+                                        document.location.href = '<?= base_url(); ?>page/load/payments-history.html/' + $('#id').html() + '/'+ $('#name').html()+'/all-ordered-items/';
+                                    }, 1500);
+                                }
+                                else{
+                                    swal(
+                                        {
+                                            title: "ERROR",
+                                            text : log_oObj.message,
+                                            type : "error",
+                                            showCancelButton  : false,
+                                            confirmButtonColor: "#F27474",
+                                            confirmButtonText : "OK",
+                                            cancelButtonText  : "",
+                                            closeOnConfirm    : true,
+                                            closeOnCancel     : false 
+                                        }
+                                    );
+                                } 
+                            }
+                        })
+                    }
+                }
+            })
+    
+            $(document).on('click', '.delete', function(){
+                
+            })
+        })
+    </script>

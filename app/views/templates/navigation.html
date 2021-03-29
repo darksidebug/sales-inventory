@@ -1,0 +1,47 @@
+<div id="myNavbar" class="navbar navbar-nav navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">	
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>			
+            <a href="#" class="navbar-brand">S & I MANAGEMENT</a>
+        </div>
+        <div class="navbar-collapse collapse">	
+            <!-- <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="#" class="" name="inbox" style="color: white !important;" data-toggle="modal" data-target="#inbox"><i class="fa fa-envelope"></i> Inbox<span class="badge New" style="background: #d9534f; margin-left: 5px;"></span></a>
+                </li>
+                <li style="opacity: none !important;">
+                    <a href="#" style="color: white !important;"><i class="fa fa-bell"></i> Notifications<span class="badge badge-danger count" style="background: #d9534f; margin-left: 5px;"></span></a>
+                </li>
+            </ul> -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown fadeIn">
+                    <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">PRODUCTS &nbsp;<div class="caret"></div>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?= base_url(); ?>page/view/purchase.html">Purchase/Order</a>
+                                <a href="<?= base_url(); ?>page/view/payments.html">Pay-In/Payments</a>
+                                <a href="<?= base_url(); ?>page/form/product.html/0/add-new-product">Add New Product</a>
+                                <a href="<?= base_url(); ?>page/list/product-list.html">View Products</a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">CUSTOMER &nbsp;<div class="caret"></div>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?= base_url(); ?>page/form/customer.html/0/add-new-customer">Add New Customer</a>
+                                <a href="<?= base_url(); ?>page/list/customers-list.html">View Customers</a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li><a href="<?= base_url(); ?>user/logout">SIGN OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

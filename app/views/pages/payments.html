@@ -1,0 +1,811 @@
+
+<div class="container-fluid payments">
+    <div class="container">
+        <h3>PURCHASED PRODUCTS PAYMENT</h3>
+        <div class="row">
+            <div class="col-md-8"> 
+                <div class="row">
+                    <div class="col-md-8 col-sm-6">
+                        <div class="form-group">
+                            <label>Search customer...</label>
+                            <input type="text" class="form-control" name="search_customer">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">CUSTOMER INFORMATION</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <input type="hidden" name="customer_id">
+                            <div class="col-md-6">
+                                <h5>FULL NAME : <span id="name"></span></h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>NICK NAME : <span id="n_name"></span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>PROFESSION / BUSINESS : <span id="business"></span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>COLOR : <span id="color"></span></h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>SIZE : <span id="size"></span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>ADDRESS : <span id="address"></span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5>CONTACT NO : <span id="contact"></span></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>TOTAL AMOUNT PAID : <span id="total_amount_paid"></span></h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>REMAINING BALANCE : <span id="balance_amount"></span></h5>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <a href="" class="btn btn-info payment_history">PAYMENTS HISTORY</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default items">
+                    <div class="panel-heading">LIST OF ORDERED ITEMS</div>
+                    <div class="panel-body">
+                        <div class="table-wrapper" style="max-height: 500px;">
+                            <div id="ordered_items_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-hover dataTable no-footer" role="grid" style="min-width: 1100px;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <td>BOX/ITEM NO</td>
+                                                    <td>ITEMS</td>
+                                                    <td>BRAND</td>
+                                                    <td>SIZE</td>
+                                                    <td>COLOR</td>
+                                                    <td>PRICE</td>
+                                                    <td>REMARKS</td>
+                                                    <td>ACTION</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="background-color: white;" id="tbody_orders">
+                                                <tr class="odd">
+                                                    <td valign="top" colspan="8" class="dataTables_empty">No orders list to be shown</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default" style="margin-top: -15px;">
+                    <div class="panel-heading">PAYMENTS HISTORY</div>
+                    <div class="panel-body">
+                        <div class="table-wrapper" style="max-height: 500px;">
+                            <div id="ordered_items_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-hover table-striped dataTable no-footer" id="payments" role="grid" style="min-width: 1100px;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <td>PAYMENT AMOUNT</td>
+                                                    <td>DATE PAID</td>
+                                                    <td>METHOD</td>
+                                                    <td>BALANCE</td>
+                                                    <td>REMARKS</td>
+                                                    <td>ACTION</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="background-color: white;" id="tbody_payments">
+                                                <tr class="odd">
+                                                    <td valign="top" colspan="6" class="dataTables_empty">No payments list to be shown</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: -10px;">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="user">Amount</label>
+                                    <input type="text" class="form-control ln" name="amount" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="user">Payment Method</label>
+                                    <input type="text" class="form-control ln" name="payment_type" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="date">Date</label>
+                                    <input type="date" class="form-control ln" name="date" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label id="user">Remarks</label>
+                                    <select type="text" class="form-control ln" name="remarks" required="">
+                                        <option value="" style="color: #000;"></option>
+                                        <option value="Partial Payment" style="color: #000;">Partial Payment</option>
+                                        <option value="Full Payment" style="color: #000;">Full Payment</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input type="hidden" class="form-control ln" name="payment_id" id="payment_id" required="">
+                                <input type="hidden" class="form-control ln" name="balance" id="balance" required="">
+                                <input type="hidden" class="form-control ln" name="payment_amount" id="payment_amount" required="">
+                                <button class="btn btn-info purchase" id="purchase">PAY-IN</button>
+                                <button type="button" class="btn btn-info update" data-toggle="modal" data-target="#login">UPDATE</button>
+                                <button type="button" class="btn btn-info clear">CLEAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--- modal -->
+<!-- <div class="modal fade" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Please check to indicate why you want to update.</h5>
+                <button class="btn btn-danger btn-xs close" type="button" data-dismiss="modal" id="danger"><i class="fa fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="row" style="margin-top: -15px;">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label id="user">Amount</label>
+                                <input type="text" class="form-control ln" name="amount" required="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label id="user">Payment Method</label>
+                                <input type="text" class="form-control ln" name="payment_type" required="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label id="date">Date</label>
+                                <input type="date" class="form-control ln" name="date" required="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label id="user">Remarks</label>
+                                <input type="text" class="form-control ln" name="remarks" required="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <span>
+                            <input type="checkbox" name="less" value="false">
+                            <p>The payment amount entered recently was less than actual payment amount.</p>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span>
+                            <input type="checkbox" name="greater" value="false">
+                            <p>The payment amount entered recently was greater than actual payment amount.</p>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <button id="" type="button" class="btn btn-info update continue">CONTINUE</button>
+                        <button class="btn btn-default clear" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--- end modal -->
+
+<!--- modal -->
+<div class="modal fade" id="login">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Please check to indicate why you want to update.</h5>
+                <button class="btn btn-danger btn-xs close" type="button" data-dismiss="modal" id="danger"><i class="fa fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <span>
+                            <input type="checkbox" name="less" value="false">
+                            <p>The payment amount entered recently was less than actual payment amount.</p>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <span>
+                            <input type="checkbox" name="greater" value="false">
+                            <p>The payment amount entered recently was greater than actual payment amount.</p>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <button id="" type="button" class="btn btn-info update continue">CONTINUE</button>
+                        <button class="btn btn-default clear" data-dismiss="modal">CANCEL</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- end modal -->
+
+<script>
+    var top_payment_history_id, orders_id;
+    $(document).ready(function(){
+        // $('#payments').DataTable();
+
+        $('input[type="date"]').on('click', function(){
+            $('#date').css('visibility', 'visible');
+        })
+
+        $('input[type="date"]').on('blur', function(){
+            if($(this).val() != ''){
+                $(this).parent().addClass('slide-up');
+                $('#date').css('visibility', 'visible');
+            }
+            else{
+                $(this).parent().removeClass('slide-up');
+                $('#date').css('visibility', 'hidden');
+            }
+        })
+
+        load();
+        function load(){
+            if($('input[name="search_customer"]').val() != ''){
+                $('input[name="search_customer"]').parent().addClass('slide-up');
+            }
+            $('#date').css('visibility', 'hidden');
+        }
+
+        pay_in_verify();
+        function pay_in_verify(){
+            if($('input[name="amount"]').val() != '' && 
+                $('input[name="payment_type"]').val() != '' && $('input[name="date"]').val() != '' && 
+                $('select[name="remarks"]').val() != ''){
+                    
+                $('input[name="amount"]').parent().addClass('slide-up');
+                $('input[name="payment_type"]').parent().addClass('slide-up');
+                $('input[name="date"]').parent().addClass('slide-up');
+                $('select[name="remarks"]').parent().addClass('slide-up');
+            }
+            else{
+                $('input[name="amount"]').parent().removeClass('slide-up');
+                $('input[name="payment_type"]').parent().removeClass('slide-up');
+                $('input[name="date"]').parent().removeClass('slide-up');
+                $('select[name="remarks"]').parent().removeClass('slide-up');
+            }
+        }
+        
+        search_order();
+
+        function search_order(){
+            if($('input[name="search_customer"]').val() != ''){
+                $.ajax({
+                    url: '<?= base_url(); ?>user/get_customer_order',
+                    type: 'POST',
+                    data: {
+                        limit: $('select[name="ordered_items_length"]').val(), 
+                        customer: $('input[name="search_customer"]').val()
+                    },
+                    success: function(data){
+                        const log_oObj = JSON.parse(data);
+                        console.log(log_oObj);
+                        var id = '', name = '', result = 0, max = 0;
+                        var html = '', html1 = '', balance = 0, paid = 0;
+
+                        log_oObj.customer.forEach(element => {
+                            $('input[name="customer_id"]').val(element['id']);
+                            id = element['id']; name = element['name']
+                            $('#name').html(element['name']);
+                            $('#n_name').html(element['nick_name']);
+                            $('#business').html(element['profession_business']);
+                            $('#color').html(element['color']);
+                            $('#size').html(element['size']);
+                            $('#address').html(element['address']);
+                            $('#contact').html(element['contact']);
+                            $('.payment_history').attr('href', '<?= base_url(); ?>page/load/payment-history.html/'+ element['id'] +'/'+ element['name'] +'/all-ordered-items/');
+                        });
+                        
+                        if(log_oObj.orders.length != 0){
+                            log_oObj.orders.forEach(element => {
+                                element['products'].forEach(products_element => {
+                                    html += '<tr>';
+                                    html += '<td class="product_id'+ element['id'] +'" id="'+ products_element['id'] +'">'+ products_element['item_box_num'] +'</td>';
+                                    var image = '';
+                                    if(products_element['image_name'] != ''){
+                                        image = "<?= base_url(); ?>uploads/"+ products_element['image_name'];
+                                    }
+                                    html += '<td>'+
+                                            '<div style="margin-right: 10px; height: 50px; width: 50px; overflow: hidden; display: inline-table; background-color: #fff; border: 1px solid #8ea1ac; border-radius: 3px;">'+
+                                                '<img src="'+image+'" srcset="" style="height: auto; width: 50px;">'+
+                                            '</div>'+ products_element['item_desc'] +'</td>';
+                                    html += '<td>'+ products_element['brand'] +'</td>';
+                                    html += '<td>'+ products_element['size'] +'</td>';
+                                    html += '<td>'+ products_element['color'] +'</td>';
+                                    html += '<td class="price'+ element['id'] +'">'+ products_element['price'] +'</td>';
+                                    html += '<td>'+ element['remarks'] +'</td>';
+                                    if(element['remarks'] == 'Sold and Delivered'){
+                                        html += '<td>';
+                                        html += '<button  id="'+ element['id'] +'" class="btn btn-danger btn-xs return">RETURN</button>';
+                                        html += '</td>';
+                                    }
+                                    else{
+                                        html += '<td>';
+                                        html += '<button  id="'+ element['id'] +'" class="btn btn-danger btn-xs return" style="visibility: hidden">RETURN</button>';
+                                        html += '</td>';
+                                    }
+                                    html += '</tr>';
+                                })
+                                $('#tbody_orders').html(html);
+                            })
+                        }
+                        else{
+                            html += '<tr><td class="text-center" colspan="8">No orders made for this customer</td></tr>';
+                            $('#tbody_orders').html(html);
+                        }
+
+                        if(log_oObj.payments.length != 0){
+                            log_oObj.payments.forEach(payment_element => {
+                                $('input[name="payment_id"]').val(payment_element['id']);
+                                $('#balance').val(payment_element['balance']);
+                                $('#payment_amount').val(payment_element['payment_amount']);
+                                balance = payment_element['balance'];
+                            })
+                            $('#balance_amount').html(balance);
+                        }
+                        else{
+                            $('#balance_amount').html(0);
+                        }
+
+                        if(log_oObj.history.length != 0){
+                            log_oObj.history.forEach(history_element => {
+                                paid = (parseFloat(paid) + parseFloat(history_element['amount_paid']));
+                                html1 += '<tr>';
+                                html1 += '<td id="amount'+ history_element['id'] +'">'+ history_element['amount_paid'] +'</td>';
+                                html1 += '<td id="date'+ history_element['id'] +'">'+ history_element['date_paid'] +'</td>';
+                                html1 += '<td id="method'+ history_element['id'] +'">'+ history_element['payment_method'] +'</td>';
+                                html1 += '<td id="balance'+ history_element['id'] +'">'+ history_element['balance'] +'</td>';
+                                html1 += '<td id="remarks'+ history_element['id'] +'">'+ history_element['remarks'] +'</td>';
+                                history_element['max'].forEach(max_id => {
+                                    if(max_id['max_id'] == history_element['id']){
+                                        html1 += '<td>';
+                                        html1 += '<button  id="'+ history_element['id'] +'" class="btn btn-warning btn-xs edit_payment" style="margin-right: 4px; visibility: visible;">UPDATE</button>';
+                                        html1 += '</td>';
+                                        top_payment_history_id = history_element['id'];
+                                    }
+                                    else{
+                                        html1 += '<td>';
+                                        html1 += '<button  id="'+ history_element['id'] +'" class="btn btn-warning btn-xs edit_payment" style="margin-right: 4px; visibility: hidden;">UPDATE</button>';
+                                        html1 += '</td>';
+                                    }
+                                })
+                                html1 += '</tr>';
+                            })
+                            $('#tbody_payments').html(html1);
+                            $('#total_amount_paid').html(paid);
+                        }
+                        else{
+                            html1 += '<tr>' +
+                                    '<td colspan="6" class="text-center">No payments made yet</td>' +
+                                '</tr>';
+                            $('#tbody_payments').html(html1);
+                            $('#total_amount_paid').html(0);
+                        }
+
+                    }
+                })
+            }
+        }
+
+        function get_orders_limit(id){
+            $.ajax({
+                url: '<?= base_url(); ?>user/get_customer_order_limit',
+                type: 'POST',
+                data: {
+                    customer_id: id
+                },
+                success: function(data){
+                    const log_oObj = JSON.parse(data);
+                    console.log(log_oObj);
+                    var id = '', name = '', result = 0;
+                    log_oObj.customer.forEach(element => {
+                        id = element['id']; name = element['name']
+                    });
+                    
+                    var html = '', html1 = '', balance = 0, paid = 0;
+                    if(log_oObj.orders.length != 0){
+                        log_oObj.orders.forEach(element => {
+                            element['products'].forEach(products_element => {
+                                html += '<tr>';
+                                html += '<td class="product_id'+ element['id'] +'" id="'+ products_element['id'] +'">'+ products_element['item_box_num'] +'</td>';
+                                var image = '';
+                                if(products_element['image_name'] != ''){
+                                    image = "<?= base_url(); ?>uploads/"+ products_element['image_name'];
+                                }
+                                html += '<td>'+
+                                        '<div style="margin-right: 10px; height: 50px; width: 50px; overflow: hidden; display: inline-table; background-color: #fff; border: 1px solid #8ea1ac; border-radius: 3px;">'+
+                                            '<img src="'+image+'" srcset="" style="height: auto; width: 50px;">'+
+                                        '</div>'+ products_element['item_desc'] +'</td>';
+                                html += '<td>'+ products_element['brand'] +'</td>';
+                                html += '<td>'+ products_element['size'] +'</td>';
+                                html += '<td>'+ products_element['color'] +'</td>';
+                                html += '<td class="price'+ element['id'] +'">'+ products_element['price'] +'</td>';
+                                html += '<td>'+ element['remarks'] +'</td>';
+                                if(element['remarks'] == 'Sold and Delivered'){
+                                    html += '<td>';
+                                    html += '<button  id="'+ element['id'] +'" class="btn btn-danger btn-xs return">RETURN</button>';
+                                    html += '</td>';
+                                }
+                                else{
+                                    html += '<td>';
+                                    html += '<button  id="'+ element['id'] +'" class="btn btn-danger btn-xs return" style="visibility: hidden">RETURN</button>';
+                                    html += '</td>';
+                                }
+                                html += '</tr>';
+                            })
+                            $('#tbody_orders').html(html);
+                        })
+                    }
+                    else{
+                        html += '<tr><td class="text-center" colspan="8">No orders made for this customer</td></tr>';
+                        $('#tbody_orders').html(html);
+                        $('#total_amount_paid').html(0);
+                        $('#balance_amount').html(0);
+                    }
+
+                    if(log_oObj.payments.length != 0){
+                        log_oObj.payments.forEach(payment_element => {
+                            $('input[name="payment_id"]').val(payment_element['id']);
+                            $('#balance').val(payment_element['balance']);
+                            $('#payment_amount').val(payment_element['payment_amount']);
+                            balance = payment_element['balance'];
+                        })
+                        $('#balance_amount').html(balance);
+                    }
+                    else{
+                        $('#balance_amount').html(0);
+                    }
+
+                    if(log_oObj.history.length != 0){
+                        log_oObj.history.forEach(history_element => {
+                            paid = (parseFloat(paid) + parseFloat(history_element['amount_paid']));
+                            html1 += '<tr>';
+                            html1 += '<td id="amount'+ history_element['id'] +'">'+ history_element['amount_paid'] +'</td>';
+                            html1 += '<td id="date'+ history_element['id'] +'">'+ history_element['date_paid'] +'</td>';
+                            html1 += '<td id="method'+ history_element['id'] +'">'+ history_element['payment_method'] +'</td>';
+                            html1 += '<td id="balance'+ history_element['id'] +'">'+ history_element['balance'] +'</td>';
+                            html1 += '<td id="remarks'+ history_element['id'] +'">'+ history_element['remarks'] +'</td>';
+                            history_element['max'].forEach(max_id => {
+                                if(max_id['max_id'] == history_element['id']){
+                                    html1 += '<td>';
+                                    html1 += '<button  id="'+ history_element['id'] +'" class="btn btn-warning btn-xs edit_payment" style="margin-right: 4px; visibility: visible;">UPDATE</button>';
+                                    html1 += '</td>';
+                                    top_payment_history_id = history_element['id'];
+                                }
+                                else{
+                                    html1 += '<td>';
+                                    html1 += '<button  id="'+ history_element['id'] +'" class="btn btn-warning btn-xs edit_payment" style="margin-right: 4px; visibility: hidden;">UPDATE</button>';
+                                    html1 += '</td>';
+                                }
+                            })
+                            html1 += '</tr>';
+                        })
+                        $('#tbody_payments').html(html1);
+                        $('#total_amount_paid').html(paid);
+                    }
+                    else{
+                        html1 += '<tr>' +
+                                '<td colspan="6" class="text-center">No payments made yet</td>' +
+                            '</tr>';
+                        $('#tbody_payments').html(html1);
+                        $('#total_amount_paid').html(0);
+                    }
+                }
+            })
+        }
+        
+
+        $('input[name="search_customer"]').on('blur', function(){
+            if($(this).val() != ''){
+                search_order();
+            }
+        })
+
+        $(document).on('click', '.return', function(){
+            $('.check' + $(this).attr('id')).css('visibility', 'hidden');
+            $.ajax({
+                url: '<?= base_url(); ?>user/return_item',
+                type: 'POST',
+                data: {
+                    order_id    : $(this).attr('id'),
+                    prod_remarks: 'Unsold',
+                    prod_id     : $('.product_id' + $(this).attr('id')).attr('id'),
+                    customer_id : $('input[name="customer_id"]').val(),
+                    history_id  : top_payment_history_id,
+                    payment_id  : $('input[name="payment_id"]').val(),
+                    balance     : ($('#balance').val() - $('.price' + $(this).attr('id')).text()),
+                    bal         : $('#balance').val(),
+                    // total_paid  : $('#balance').val(),
+                    price       : $('.price' + $(this).attr('id')).text()
+                },
+                success: function(data){
+                    const log_oObj = JSON.parse(data);
+                    console.log(log_oObj);
+                    if(log_oObj.update == true){
+                        get_orders_limit($('input[name="customer_id"]').val());
+                        swal(
+                            {
+                                title: 'SUCCESSFUL',
+                                text : log_oObj.message,
+                                type : "success",
+                                showCancelButton  : false,
+                                confirmButtonColor: "#A5DC86",
+                                confirmButtonText : "OK",
+                                cancelButtonText  : "",
+                                closeOnConfirm    : true,
+                                closeOnCancel     : false 
+                            }
+                        );
+                        $('input[name="amount"]').val('');
+                        $('input[name="payment_type"]').val('');
+                        $('input[name="date"]').val('');
+                        $('select[name="remarks"]').val('');
+                    }
+                    else{
+                        swal(
+                            {
+                                title: "ERROR",
+                                text : log_oObj.message,
+                                type : "error",
+                                showCancelButton  : false,
+                                confirmButtonColor: "#F27474",
+                                confirmButtonText : "OK",
+                                cancelButtonText  : "",
+                                closeOnConfirm    : true,
+                                closeOnCancel     : false 
+                            }
+                        );
+                    } 
+                }
+            })
+        })
+
+        
+
+        $(document).on('click', '.purchase', function(){
+            if($('input[name="amount"]').val() != '' && $('input[name="payment_type"]').val() != '' 
+                && $('input[name="date"]').val() != '' && $('select[name="remarks"]').val() != '' && 
+                $('input[name="customer_id"]').val() != '' && $('input[name="payment_id"]').val() != '')
+                {
+                $.ajax({
+                    url: '<?= base_url(); ?>user/save_payment',
+                    type: 'POST',
+                    data: {
+                        id          : $('input[name="product_id"]').val(),
+                        amount      : $('input[name="amount"]').val(),
+                        method      : $('input[name="payment_type"]').val(),
+                        date        : $('input[name="date"]').val(),
+                        remarks     : $('select[name="remarks"]').val(),
+                        customer_id : $('input[name="customer_id"]').val(),
+                        payment_id  : $('input[name="payment_id"]').val(),
+                        balance     : ($('#balance').val() - $('input[name="amount"]').val())
+                    },
+                    success: function(data){
+                        const log_oObj = JSON.parse(data);
+                        console.log(log_oObj);
+                        if(log_oObj.update == true){
+                            get_orders_limit($('input[name="customer_id"]').val());
+                            swal(
+                                {
+                                    title: 'SUCCESSFUL',
+                                    text : log_oObj.message,
+                                    type : "success",
+                                    showCancelButton  : false,
+                                    confirmButtonColor: "#A5DC86",
+                                    confirmButtonText : "OK",
+                                    cancelButtonText  : "",
+                                    closeOnConfirm    : true,
+                                    closeOnCancel     : false 
+                                }
+                            );
+                            $('input[name="amount"]').val('');
+                            $('input[name="payment_type"]').val('');
+                            $('input[name="date"]').val('');
+                            $('select[name="remarks"]').val('');
+                        }
+                        else{
+                            swal(
+                                {
+                                    title: "ERROR",
+                                    text : log_oObj.message,
+                                    type : "error",
+                                    showCancelButton  : false,
+                                    confirmButtonColor: "#F27474",
+                                    confirmButtonText : "OK",
+                                    cancelButtonText  : "",
+                                    closeOnConfirm    : true,
+                                    closeOnCancel     : false 
+                                }
+                            );
+                        } 
+                    }
+                })
+            }
+            else{
+                swal(
+                    {
+                        title: "WARNING",
+                        text : 'Please select customer and fill necessary fields.',
+                        type : "warning",
+                        showCancelButton  : false,
+                        confirmButtonColor: "#F8C886",
+                        confirmButtonText : "OK",
+                        cancelButtonText  : "",
+                        closeOnConfirm    : true,
+                        closeOnCancel     : false 
+                    }
+                );
+            } 
+        })
+
+        $(document).on('click', '.edit_payment', function(){
+            $('input[name="amount"]').val($('#amount'+ $(this).attr('id')).text());
+            $('input[name="payment_type"]').val($('#method'+ $(this).attr('id')).text());
+            $('input[name="date"]').val($('#date'+ $(this).attr('id')).text());
+            $('select[name="remarks"]').val($('#remarks'+ $(this).attr('id')).text());
+            pay_in_verify();
+            $('#date').css('visibility', 'visible');
+            $('.continue').attr('id', $(this).attr('id'));
+        })
+
+        $('input[name="less"]').click(function() {
+            if($(this).is(':checked')){
+                $(this).attr('value', 'true')
+                $(this).prop('checked', true)
+                $('input[name="greater"]').prop('checked', false);
+                $('input[name="greater"]').attr('value', 'false');
+            }
+            else{
+                $(this).attr('value', 'false')
+            }
+        })
+        $('input[name="greater"]').click(function() {
+            if($(this).is(':checked')){
+                $(this).attr('value', 'true')
+                $(this).prop('checked', true)
+                $('input[name="less"]').prop('checked', false);
+                $('input[name="less"]').attr('value', 'false');
+            }
+            else{
+                $(this).attr('value', 'false')
+            }
+        })
+
+        $('.continue').on('click', function(e){
+            e.preventDefault();
+            if($('input[name="greater"]').is(':checked') || $('input[name="less"]').is(':checked')){
+                if(confirm('Are you sure you want to continue? This actions cannot be undone.')){
+                    $.ajax({
+                        url: '<?= base_url(); ?>user/update_payment',
+                        type: 'POST',
+                        data : {
+                            id          : $(this).attr('id'),
+                            amount      : $('input[name="amount"]').val(),
+                            method      : $('input[name="payment_type"]').val(),
+                            date        : $('input[name="date"]').val(),
+                            remarks     : $('input[name="remarks"]').val(),
+                            customer_id : $('input[name="customer_id"]').val(),
+                            payment_id  : $('input[name="payment_id"]').val(),
+                            balance     : $('#balance').val(),
+                            payment_amount     : $('#payment_amount').val(),
+                            less        : $('input[name="less"]').val(),
+                            greater     : $('input[name="greater"]').val(),
+                        },
+                        success: function(data){
+                            const log_oObj = JSON.parse(data);
+                            console.log(data);
+                            if(log_oObj.update == true){
+                                get_orders_limit($('input[name="customer_id"]').val());
+                                $('.modal').modal('toggle');
+                                swal(
+                                    {
+                                        title: 'SUCCESSFUL',
+                                        text : log_oObj.message,
+                                        type : "success",
+                                        showCancelButton  : false,
+                                        confirmButtonColor: "#A5DC86",
+                                        confirmButtonText : "OK",
+                                        cancelButtonText  : "",
+                                        closeOnConfirm    : true,
+                                        closeOnCancel     : false 
+                                    }
+                                );
+                                $('input[name="amount"]').val('');
+                                $('input[name="payment_type"]').val('');
+                                $('input[name="date"]').val('');
+                                $('select[name="remarks"]').val('');
+                            }
+                            else{
+                                swal(
+                                    {
+                                        title: "ERROR",
+                                        text : log_oObj.message,
+                                        type : "error",
+                                        showCancelButton  : false,
+                                        confirmButtonColor: "#F27474",
+                                        confirmButtonText : "OK",
+                                        cancelButtonText  : "",
+                                        closeOnConfirm    : true,
+                                        closeOnCancel     : false 
+                                    }
+                                );
+                            } 
+                        }
+                    })
+                }
+            }
+        })
+
+        $(document).on('click', '.clear', function(){
+            $('input[name="amount"]').val('');
+            $('input[name="payment_type"]').val('');
+            $('input[name="date"]').val('');
+            $('select[name="remarks"]').val('');
+            pay_in_verify();
+            $('#date').css('visibility', 'hidden');
+        })
+
+    })
+</script>

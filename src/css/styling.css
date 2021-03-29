@@ -1,0 +1,574 @@
+@import url(../../assets/Fonts/WebFonts/style.css);
+* {
+  padding: 0;
+  margin: 0; }
+
+html::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: #F5F5F5;
+  border-radius: 5px; }
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #263238; }
+
+html::-webkit-scrollbar-thumb {
+  background-color: darkorange;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  border-radius: 5px; }
+
+input, select {
+  height: 35px !important;
+  border-top: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  font-size: 15px !important;
+  margin-top: 10px !important;
+  letter-spacing: 0.07rem;
+  color: #fff !important;
+  background-color: transparent !important; }
+
+label {
+  color: #b3b2b2;
+  font-weight: normal !important;
+  font-family: 'Montserrat';
+  letter-spacing: 0.1rem;
+  cursor: text;
+  transition: top;
+  transition-delay: 0.5ms;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out; }
+
+.form-group {
+  margin-bottom: -5px !important; }
+  .form-group label {
+    position: relative;
+    top: 4.2rem;
+    left: 0; }
+
+.form-group.slide-up label {
+  top: 1.5rem; }
+
+.btn {
+  margin-top: 25px;
+  height: 40px !important;
+  letter-spacing: 0.07rem;
+  font-family: 'Montserrat';
+  outline: none !important;
+  border-radius: 2px !important; }
+
+a.btn-info, a.btn-default {
+  padding-top: 9px !important;
+  padding-bottom: 9px !important;
+  margin-left: 0.01rem;
+  outline: none !important; }
+
+p.dev {
+  letter-spacing: 0.05rem;
+  margin-top: 40px;
+  color: #838383; }
+
+#myNavbar {
+  position: fixed !important;
+  z-index: 1000;
+  background-color: #1B2327 !important;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 0px !important;
+  border-bottom: 1px solid #192024;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important; }
+  #myNavbar .navbar-brand {
+    font-family: 'Montserrat';
+    font-size: 25px !important;
+    font-weight: bolder !important;
+    color: #5BC0DE !important;
+    letter-spacing: 0.07rem; }
+  #myNavbar ul > li a {
+    color: #5BC0DE !important;
+    font-family: 'Montserrat';
+    letter-spacing: 0.07rem;
+    background-color: transparent !important;
+    font-size: 16px !important; }
+    #myNavbar ul > li a:hover {
+      color: darkorange !important; }
+  #myNavbar .navbar-nav li > .dropdown-menu {
+    margin-top: 10px !important;
+    background-color: #39474e !important; }
+    #myNavbar .navbar-nav li > .dropdown-menu li > a {
+      font-family: 'Montserrat';
+      letter-spacing: 0.07rem;
+      padding-top: 10px;
+      padding-bottom: 10px; }
+  #myNavbar .navbar-nav .open a:focus {
+    background-color: transparent !important; }
+  @media screen and (max-width: 768px) {
+    #myNavbar .navbar-header {
+      padding-right: 15px !important;
+      padding-left: 15px !important; }
+    #myNavbar .navbar-collapse {
+      margin-top: 10px !important; }
+    #myNavbar .navbar-collapse > ul > li {
+      padding-left: 25px !important;
+      padding-right: 25px !important; } }
+
+@media screen and (max-width: 768px) {
+  #myNavbar {
+    margin-top: 0px !important; } }
+.sign-in, .purchase, .product, .payments, .list {
+  background-color: #263238 !important; }
+
+.sign-in, .product {
+  height: 100vh;
+  padding-top: 80px !important; }
+  .sign-in h3, .sign-in h4, .sign-in h5, .product h3, .product h4, .product h5 {
+    letter-spacing: 0.07rem;
+    color: #737373; }
+  .sign-in h3, .product h3 {
+    font-weight: bolder;
+    font-family: 'Montserrat';
+    color: darkorange;
+    cursor: pointer; }
+  .sign-in h5, .product h5 {
+    margin-top: 30px;
+    padding-bottom: 10px; }
+  .sign-in input[type="file"], .product input[type="file"] {
+    background-color: #000; }
+  .sign-in .border, .product .border {
+    margin-top: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 5px; }
+  .sign-in form, .product form {
+    margin-top: 30px; }
+    .sign-in form .keep_log, .product form .keep_log {
+      margin-top: 10px; }
+    .sign-in form span, .product form span {
+      color: #737373;
+      letter-spacing: 0.07rem; }
+    .sign-in form input[name='keep_log'], .product form input[name='keep_log'] {
+      position: relative;
+      top: 1.3rem !important;
+      outline: none !important; }
+    .sign-in form button, .product form button {
+      margin-top: 60px;
+      margin-bottom: 10px; }
+  .sign-in .img-wrapper, .product .img-wrapper {
+    margin-top: 60px;
+    width: 240px;
+    height: 240px;
+    border: 3px solid #43525a;
+    border-radius: 3px; }
+
+.purchase, .payments, .list {
+  height: 100%;
+  padding-bottom: 100px;
+  padding-top: 80px !important; }
+  .purchase .btn-danger, .payments .btn-danger, .list .btn-danger {
+    height: 4.14rem !important;
+    margin-bottom: 10px !important; }
+  .purchase h3, .purchase h5, .purchase h4, .payments h3, .payments h5, .payments h4, .list h3, .list h5, .list h4 {
+    letter-spacing: 0.07rem; }
+  .purchase h5, .payments h5, .list h5 {
+    font-size: 15px;
+    color: #979696; }
+    .purchase h5 span, .payments h5 span, .list h5 span {
+      font-family: 'Montserrat';
+      color: #5BC0DE !important;
+      margin-top: 10px; }
+  .purchase h3, .payments h3, .list h3 {
+    font-weight: bolder;
+    font-family: 'Montserrat';
+    color: darkorange;
+    cursor: pointer; }
+  .purchase .panel, .payments .panel, .list .panel {
+    margin-top: 40px;
+    border-radius: 5px !important;
+    border: 1px solid #3a474e;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3); }
+    .purchase .panel .panel-heading, .payments .panel .panel-heading, .list .panel .panel-heading {
+      border-radius: 1px;
+      letter-spacing: 0.07rem !important;
+      border-top-left-radius: 3px !important;
+      border-top-right-radius: 3px !important;
+      font-size: 16px !important;
+      font-weight: bold !important;
+      font-family: 'Montserrat';
+      color: darkorange;
+      background-color: #43525a; }
+  .purchase .update, .payments .update, .list .update {
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5) !important;
+    margin-bottom: 10px; }
+    .purchase .update:hover, .payments .update:hover, .list .update:hover {
+      box-shadow: none !important;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #64d6f8), color-stop(100%, #1e9fc7)) !important;
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* IE10+ */
+      background: -o-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #64d6f8 0%, #1e9fc7 100%) !important;
+      /*  W3C  */ }
+  .purchase button.add-image, .payments button.add-image, .list button.add-image {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 30px !important;
+    width: 230px;
+    font-size: 12px;
+    border-radius: 2px !important;
+    outline: none !important;
+    background-color: #43525A !important;
+    border: 1px solid #39464d;
+    margin-bottom: 10px;
+    outline: none !important; }
+    .purchase button.add-image:hover, .payments button.add-image:hover, .list button.add-image:hover {
+      border: 1px solid #263238;
+      box-shadow: none !important;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #51626b), color-stop(100%, #313e44)) !important;
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #51626b 0%, #313e44 100%) !important;
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #51626b 0%, #313e44 100%) !important;
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #51626b 0%, #313e44 100%) !important;
+      /* IE10+ */
+      background: -o-linear-gradient(top, #51626b 0%, #313e44 100%) !important;
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #51626b 0%, #313e44 100%) !important;
+      /*  W3C  */ }
+  .purchase button.delete, .payments button.delete, .list button.delete {
+    background-color: #db3a35 !important;
+    border: 1px solid #b12a25;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    outline: none !important; }
+    .purchase button.delete:hover, .payments button.delete:hover, .list button.delete:hover {
+      border: 1px solid #b12a25;
+      box-shadow: none !important;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee443e), color-stop(100%, #b42a26)) !important;
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #ee443e 0%, #b42a26 100%) !important;
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #ee443e 0%, #b42a26 100%) !important;
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #ee443e 0%, #b42a26 100%) !important;
+      /* IE10+ */
+      background: -o-linear-gradient(top, #ee443e 0%, #b42a26 100%) !important;
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #ee443e 0%, #b42a26 100%) !important;
+      /*  W3C  */ }
+  .purchase button.purchase, .payments button.purchase, .list button.purchase {
+    background-color: #e47f04 !important;
+    border: 1px solid #e78002;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    outline: none !important;
+    height: 40px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important; }
+    .purchase button.purchase:hover, .payments button.purchase:hover, .list button.purchase:hover {
+      border: 1px solid #e78002;
+      box-shadow: none !important;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7941c), color-stop(100%, #c06b03)) !important;
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+      /* IE10+ */
+      background: -o-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #f7941c 0%, #c06b03 100%) !important;
+      /*  W3C  */ }
+  .purchase button.update, .payments button.update, .list button.update {
+    margin-bottom: 10px; }
+    .purchase button.update:hover, .payments button.update:hover, .list button.update:hover {
+      box-shadow: none !important;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #64d6f8), color-stop(100%, #1e9fc7)) !important;
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* IE10+ */
+      background: -o-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #64d6f8 0%, #1e9fc7 100%) !important;
+      /*  W3C  */ }
+  .purchase button.clear, .purchase a.clear, .payments button.clear, .payments a.clear, .list button.clear, .list a.clear {
+    margin-bottom: 10px !important;
+    background-color: #3a484e;
+    color: #fff;
+    border: 1px solid #4a5b63;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3); }
+    .purchase button.clear:hover, .purchase a.clear:hover, .payments button.clear:hover, .payments a.clear:hover, .list button.clear:hover, .list a.clear:hover {
+      box-shadow: none !important;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #43525A), color-stop(100%, #313c42)) !important;
+      /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+      /* Chrome10+,Safari5.1+ */
+      background: -moz-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+      /* FF3.6+ */
+      background: -ms-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+      /* IE10+ */
+      background: -o-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+      /* Opera 11.10+ */
+      background: linear-gradient(to bottom, #43525A 0%, #313c42 100%) !important;
+      /*  W3C  */ }
+  .purchase .img-wrapper, .payments .img-wrapper, .list .img-wrapper {
+    margin-top: 10px;
+    width: 230px;
+    height: 230px;
+    border: 3px solid #43525a;
+    border-radius: 3px;
+    overflow: hidden; }
+    .purchase .img-wrapper img, .payments .img-wrapper img, .list .img-wrapper img {
+      width: 230px !important;
+      height: auto !important; }
+  @media screen and (max-width: 414px) {
+    .purchase .img-wrapper, .payments .img-wrapper, .list .img-wrapper {
+      width: 325px;
+      height: 325px; }
+    .purchase button.add-image, .payments button.add-image, .list button.add-image {
+      width: 325px; } }
+  @media screen and (max-width: 411px) {
+    .purchase .img-wrapper, .payments .img-wrapper, .list .img-wrapper {
+      width: 320px;
+      height: 320px; }
+    .purchase button.add-image, .payments button.add-image, .list button.add-image {
+      width: 320px; } }
+  @media screen and (max-width: 375px) {
+    .purchase .img-wrapper, .payments .img-wrapper, .list .img-wrapper {
+      width: 280px;
+      height: 280px; }
+    .purchase button.add-image, .payments button.add-image, .list button.add-image {
+      width: 280px; } }
+  @media screen and (max-width: 360px) {
+    .purchase .img-wrapper, .payments .img-wrapper, .list .img-wrapper {
+      width: 270px;
+      height: 270px; }
+    .purchase button.add-image, .payments button.add-image, .list button.add-image {
+      width: 270px; } }
+  @media screen and (max-width: 320px) {
+    .purchase .img-wrapper, .payments .img-wrapper, .list .img-wrapper {
+      width: 230px;
+      height: 230px; }
+    .purchase button.add-image, .payments button.add-image, .list button.add-image {
+      width: 230px; } }
+
+.modal .modal-content {
+  border-radius: 3px;
+  background-color: #263238 !important; }
+  .modal .modal-content .modal-header h5 {
+    display: inline-block;
+    margin-left: 10px;
+    color: darkorange !important;
+    letter-spacing: 0.07rem;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: bolder; }
+  .modal .modal-content .modal-header button {
+    position: fixed;
+    top: 0.8rem;
+    right: 0.8rem;
+    height: 20px !important;
+    width: 20px !important;
+    font-size: 12px;
+    color: #fff !important;
+    font-weight: normal !important;
+    outline: none !important;
+    opacity: 0.8 !important; }
+    .modal .modal-content .modal-header button:hover {
+      border-radius: 20px !important;
+      color: #fff !important;
+      text-shadow: none !important;
+      opacity: 1 !important; }
+  .modal .modal-content .modal-body {
+    padding: 10px 30px;
+    margin-bottom: 50px; }
+    .modal .modal-content .modal-body .form-group span input, .modal .modal-content .modal-body .form-group span p {
+      display: inline; }
+    .modal .modal-content .modal-body .form-group span p {
+      position: relative;
+      top: -1.3rem;
+      color: #48CDF5;
+      letter-spacing: 0.07rem;
+      padding-left: 1px; }
+    .modal .modal-content .modal-body .form-group label {
+      font-weight: 100;
+      letter-spacing: 0.07rem; }
+    .modal .modal-content .modal-body .form-group h4 {
+      letter-spacing: 0.07rem;
+      color: #979696;
+      font-family: 'Montserrat';
+      padding-bottom: 10px !important; }
+    .modal .modal-content .modal-body button.clear {
+      background-color: #3a484e;
+      color: #fff;
+      border: 1px solid #4a5b63;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3); }
+      .modal .modal-content .modal-body button.clear:hover {
+        box-shadow: none !important;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #43525A), color-stop(100%, #313c42)) !important;
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+        /* Chrome10+,Safari5.1+ */
+        background: -moz-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+        /* FF3.6+ */
+        background: -ms-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+        /* IE10+ */
+        background: -o-linear-gradient(top, #43525A 0%, #313c42 100%) !important;
+        /* Opera 11.10+ */
+        background: linear-gradient(to bottom, #43525A 0%, #313c42 100%) !important;
+        /*  W3C  */ }
+    .modal .modal-content .modal-body button.update {
+      background-color: #e47f04 !important;
+      border: 1px solid #e78002;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+      outline: none !important;
+      height: 40px !important;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important; }
+      .modal .modal-content .modal-body button.update:hover {
+        border: 1px solid #e78002;
+        box-shadow: none !important;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7941c), color-stop(100%, #c06b03)) !important;
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+        /* Chrome10+,Safari5.1+ */
+        background: -moz-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+        /* FF3.6+ */
+        background: -ms-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+        /* IE10+ */
+        background: -o-linear-gradient(top, #f7941c 0%, #c06b03 100%) !important;
+        /* Opera 11.10+ */
+        background: linear-gradient(to bottom, #f7941c 0%, #c06b03 100%) !important;
+        /*  W3C  */ }
+
+.payments button[name="search"], .list button[name="search"], .purchase button[name="search"] {
+  margin-bottom: -2px !important; }
+.payments .payment_info, .payments .items, .list .payment_info, .list .items, .purchase .payment_info, .purchase .items {
+  margin-top: -10px !important; }
+.payments .dataTables_wrapper, .list .dataTables_wrapper, .purchase .dataTables_wrapper {
+  padding-top: 40px !important;
+  padding-bottom: 40px; }
+  .payments .dataTables_wrapper .col-sm-6 .dataTables_length select, .list .dataTables_wrapper .col-sm-6 .dataTables_length select, .purchase .dataTables_wrapper .col-sm-6 .dataTables_length select {
+    margin-top: 0px !important;
+    border-top: 1px solid #ccc !important;
+    border-left: 1px solid #ccc !important;
+    border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
+    height: 36px;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 1px;
+    font-size: 15px; }
+  .payments .dataTables_wrapper .col-sm-6 .dataTables_length label, .list .dataTables_wrapper .col-sm-6 .dataTables_length label, .purchase .dataTables_wrapper .col-sm-6 .dataTables_length label {
+    color: #a09e9e;
+    font-weight: normal;
+    letter-spacing: 0.1rem; }
+  .payments .dataTables_wrapper .col-sm-6 .dataTables_filter input, .list .dataTables_wrapper .col-sm-6 .dataTables_filter input, .purchase .dataTables_wrapper .col-sm-6 .dataTables_filter input {
+    margin-top: 0px !important;
+    border-top: 1px solid #ccc !important;
+    border-left: 1px solid #ccc !important;
+    border-right: 1px solid #ccc !important;
+    border-bottom: 1px solid #ccc !important;
+    height: 40px;
+    background-color: transparent; }
+  .payments .dataTables_wrapper .col-sm-6 .dataTables_filter label, .list .dataTables_wrapper .col-sm-6 .dataTables_filter label, .purchase .dataTables_wrapper .col-sm-6 .dataTables_filter label {
+    color: #a09e9e;
+    font-weight: normal;
+    letter-spacing: 0.1rem; }
+  .payments .dataTables_wrapper .col-sm-5 .dataTables_info, .list .dataTables_wrapper .col-sm-5 .dataTables_info, .purchase .dataTables_wrapper .col-sm-5 .dataTables_info {
+    letter-spacing: 0.07rem;
+    color: #979696;
+    font-family: 'Montserrat'; }
+  .payments .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li, .list .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li, .purchase .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li {
+    background-color: #48cdf5;
+    height: 40px !important;
+    border: 1px solid #33afd4 !important; }
+    .payments .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li a, .list .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li a, .purchase .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li a {
+      background-color: transparent;
+      letter-spacing: 0.07rem;
+      border: none;
+      color: #fff;
+      padding: 3px 12px !important;
+      text-transform: uppercase;
+      outline: none; }
+  .payments .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li:nth-child(1), .payments .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li:nth-child(2), .list .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li:nth-child(1), .list .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li:nth-child(2), .purchase .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li:nth-child(1), .purchase .dataTables_wrapper .col-sm-7 .dataTables_paginate .pagination li:nth-child(2) {
+    margin-right: 1px !important; }
+  .payments .dataTables_wrapper .col-sm-7 .dataTables_paginate .paginate_button:hover, .list .dataTables_wrapper .col-sm-7 .dataTables_paginate .paginate_button:hover, .purchase .dataTables_wrapper .col-sm-7 .dataTables_paginate .paginate_button:hover {
+    color: white !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #64d6f8), color-stop(100%, #1e9fc7)) !important;
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+    /* IE10+ */
+    background: -o-linear-gradient(top, #64d6f8 0%, #1e9fc7 100%) !important;
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, #64d6f8 0%, #1e9fc7 100%) !important;
+    /*  W3C  */ }
+.payments .table-wrapper, .list .table-wrapper, .purchase .table-wrapper {
+  overflow: auto; }
+.payments .table-wrapper::-webkit-scrollbar-track, .list .table-wrapper::-webkit-scrollbar-track, .purchase .table-wrapper::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: #F5F5F5;
+  border-radius: 5px; }
+.payments .table-wrapper::-webkit-scrollbar, .list .table-wrapper::-webkit-scrollbar, .purchase .table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #263238; }
+.payments .table-wrapper::-webkit-scrollbar-thumb, .list .table-wrapper::-webkit-scrollbar-thumb, .purchase .table-wrapper::-webkit-scrollbar-thumb {
+  background-color: darkorange;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  border-radius: 5px; }
+.payments table, .list table, .purchase table {
+  border-top: 1px solid rgba(0, 0, 0, 0.8);
+  min-width: 1100px !important; }
+  .payments table thead, .list table thead, .purchase table thead {
+    background-color: #48cdf5;
+    color: #fff;
+    letter-spacing: 0.07rem !important;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    padding-top: 5px;
+    padding-bottom: 5px; }
+    .payments table thead tr > td:last-child, .list table thead tr > td:last-child, .purchase table thead tr > td:last-child {
+      text-align: center; }
+  .payments table tbody > tr > td, .list table tbody > tr > td, .purchase table tbody > tr > td {
+    letter-spacing: 0.07rem; }
+    .payments table tbody > tr > td .edit, .payments table tbody > tr > td .del, .payments table tbody > tr > td .delete, .payments table tbody > tr > td .return, .payments table tbody > tr > td .edit_payment, .list table tbody > tr > td .edit, .list table tbody > tr > td .del, .list table tbody > tr > td .delete, .list table tbody > tr > td .return, .list table tbody > tr > td .edit_payment, .purchase table tbody > tr > td .edit, .purchase table tbody > tr > td .del, .purchase table tbody > tr > td .delete, .purchase table tbody > tr > td .return, .purchase table tbody > tr > td .edit_payment {
+      margin-top: 0px;
+      display: inline-block;
+      height: 22px !important;
+      border-radius: 2px !important;
+      margin-bottom: 0 !important; }
+    .payments table tbody > tr > td button.select, .list table tbody > tr > td button.select, .purchase table tbody > tr > td button.select {
+      margin-top: 0px;
+      margin-bottom: 0px !important;
+      height: 30px !important; }
+    .payments table tbody > tr > td a:nth-child(2), .payments table tbody > tr > td a:nth-child(4), .list table tbody > tr > td a:nth-child(2), .list table tbody > tr > td a:nth-child(4), .purchase table tbody > tr > td a:nth-child(2), .purchase table tbody > tr > td a:nth-child(4) {
+      margin-left: -2px; }
+    .payments table tbody > tr > td a:nth-child(3), .list table tbody > tr > td a:nth-child(3), .purchase table tbody > tr > td a:nth-child(3) {
+      margin-left: -2px; }
+  .payments table tbody > tr > td:last-child, .list table tbody > tr > td:last-child, .purchase table tbody > tr > td:last-child {
+    text-align: center; }
+
+/*# sourceMappingURL=styling.css.map */
